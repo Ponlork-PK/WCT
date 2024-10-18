@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rous_ponlork</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <h1>Canvas Drawing: Rectangle and Circle</h1>
+</header>
+
+<!-- Canvas Element -->
+<section>
+  <canvas id="myCanvas" width="500" height="400"></canvas>
+</section>
+
+<!-- Footer Section -->
+<footer>
+  <p>Contact Information: Email us at <a href="mailto:info@example.com">info@example.com</a></p>
+</footer>
+
+<!-- JavaScript for Drawing -->
+<script>
+  // Get the canvas element and its context
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Draw a Rectangle
+  ctx.fillStyle = 'blue'; // Fill color for the rectangle
+  ctx.fillRect(50, 50, 150, 100); // x, y, width, height
+
+  // Draw a Circle
+  ctx.beginPath();
+  ctx.arc(300, 150, 50, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
+  ctx.fillStyle = 'green'; // Fill color for the circle
+  ctx.fill();
+  ctx.closePath();
+</script>
+
+</body>
+</html>

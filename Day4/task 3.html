@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rous_ponlork</title>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <h1>Registration Form</h1>
+</header>
+
+<!-- Form Section -->
+<section>
+  <form action="/submit" method="post">
+    <!-- Name Field -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required minlength="2" maxlength="50">
+    <br><br>
+
+    <!-- Email Field -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+
+    <!-- Password Field -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required minlength="6">
+    <br><br>
+
+    <!-- Confirm Password Field -->
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required minlength="6">
+    <br><br>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Register">
+  </form>
+</section>
+
+<!-- Footer Section -->
+<footer>
+  <p>Contact Information: Email us at <a href="mailto:info@example.com">info@example.com</a></p>
+</footer>
+
+<!-- Validation Script (Optional) -->
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function (event) {
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+    if (password !== confirmPassword) {
+      event.preventDefault();
+      alert("Passwords do not match!");
+    }
+  });
+</script>
+
+</body>
+</html>
