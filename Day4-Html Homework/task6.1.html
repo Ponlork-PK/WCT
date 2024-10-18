@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rous_ponlork</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .color-btn {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Select Your favorite Background Color</h1>
+
+<button class="color-btn" style="background-color: lightblue;" onclick="setTheme('lightblue')">Light Blue</button>
+<button class="color-btn" style="background-color: lightgreen;" onclick="setTheme('lightgreen')">Light Green</button>
+<button class="color-btn" style="background-color: lightcoral;" onclick="setTheme('lightcoral')">Light Coral</button>
+
+<script>
+    // Check if a saved theme exists and apply it
+    window.onload = function() {
+        var savedTheme = localStorage.getItem("themeColor");
+        if (savedTheme) {
+            document.body.style.backgroundColor = savedTheme;
+        }
+    };
+
+    // Function to set the theme and save it to localStorage
+    function setTheme(color) {
+        document.body.style.backgroundColor = color;
+        localStorage.setItem("themeColor", color); // Save the color in localStorage
+    }
+</script>
+
+</body>
+</html>

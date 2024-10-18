@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rous_ponlork</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Bouncing Ball Game</h1>
+<canvas id="gameCanvas" width="500" height="500"></canvas>
+
+<script>
+    var canvas = document.getElementById("gameCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // Ball properties
+    var ballRadius = 20;
+    var x = canvas.width / 2;
+    var y = canvas.height / 2;
+    var dx = 2; // Horizontal speed
+    var dy = 2; // Vertical speed
+
+    // Function to draw the ball
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+        ctx.fillStyle = getRandomColor();
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    // Function to generate random color
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Function to update the game state
+    function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBall();
+
+        // Ball bounces off the walls
+        if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+            dx = -dx;
+        }
+        if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
+            dy = -dy;
+        }
+
+        // Move the ball
+        x += dx;
+        y += dy;
+    }
+
+    // Start the game loop
+    setInterval(update, 10);
+</script>
+
+</body>
+</html>

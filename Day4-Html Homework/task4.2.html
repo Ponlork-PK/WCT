@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rous_ponlork</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Interactive Drawing App</h1>
+
+<!-- Canvas element for drawing -->
+<canvas id="drawingCanvas" width="500" height="500"></canvas>
+
+<script>
+    var canvas = document.getElementById("drawingCanvas");
+    var ctx = canvas.getContext("2d");
+    var drawing = false;
+
+    // Function to start drawing
+    canvas.addEventListener("mousedown", function(e) {
+        drawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY); // Move the path to the mouse position
+    });
+
+    // Function to draw when the mouse moves
+    canvas.addEventListener("mousemove", function(e) {
+        if (drawing) {
+            ctx.lineTo(e.offsetX, e.offsetY); // Draw line to the new mouse position
+            ctx.stroke();
+        }
+    });
+
+    // Function to stop drawing
+    canvas.addEventListener("mouseup", function() {
+        drawing = false;
+    });
+
+    // Function to stop drawing when the mouse leaves the canvas
+    canvas.addEventListener("mouseleave", function() {
+        drawing = false;
+    });
+</script>
+
+</body>
+</html>
